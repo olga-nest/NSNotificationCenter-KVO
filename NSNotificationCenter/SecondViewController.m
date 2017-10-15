@@ -10,6 +10,8 @@
 
 @interface SecondViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+
 @end
 
 @implementation SecondViewController
@@ -20,10 +22,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end
