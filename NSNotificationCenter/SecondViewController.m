@@ -18,8 +18,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector: @selector(changeCountLabel:)
+     name:@"stepperValueChanged"
+     object:nil];
+    
+    }
+
+- (void)addObserver:(id)observer selector:(SEL)aSelector name:(NSNotificationName)aName object:(id)anObject {
+//    [[NSNotificationCenter defaultCenter]
+//     addObserver:self
+//     selector: @selector(changeCountLabel:)
+//     name:@"stepperValueChanged"
+//     object:nil];
 }
+
+-(void)changeCountLabel: (NSNotification *) notification {
+    self.countLabel.text = [notification.userInfo[@"stepperValue"] description];
+}
+
+
 
 
 
