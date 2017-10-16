@@ -15,10 +15,21 @@
 
 @implementation FirstViewController
 
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+}
+
 - (IBAction)stepperTapped:(UIStepper *)sender {
+    
+    
+    NSNumber *stepperValueNumber =  [NSNumber numberWithDouble:sender.value];
+    
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
+    NSDictionary *stepperInfo =  @{@"stepperValue" : stepperValueNumber};
     
+   [notificationCenter postNotificationName:@"stepperValueChanged" object:self userInfo:stepperInfo];
     
 }
 

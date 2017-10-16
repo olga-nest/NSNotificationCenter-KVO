@@ -16,11 +16,37 @@
 
 @implementation SecondViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setObserver];
+//    [self.view setNeedsDisplay];
+    
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+//    [self.view setNeedsDisplay];
+    }
+
+-(void)changeCountLabel: (NSNotification *) notification {
+    NSString *newValueForLabel = [notification.userInfo[@"stepperValue"] description];
+    NSLog(@"Changing second view controller label to %@", newValueForLabel);
+    self.countLabel.text = [notification.userInfo[@"stepperValue"] description];
+}
+
+-(void)dealloc
+{
+//Remove observer
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)setObserver {
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector: @selector(changeCountLabel:)
+     name:@"stepperValueChanged"
+     object:nil];
+}
 
 
 
