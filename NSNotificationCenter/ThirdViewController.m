@@ -24,6 +24,10 @@
     [notificationCenter addObserver:self selector:@selector(keyboardDidChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
 
     _oldConstraint = self.bottomConstraint.constant;
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:tapRecognizer];
+
 }
 
 -(void)keyboardDidChange: (NSNotification *) notification {
@@ -45,11 +49,8 @@
     
 }
 
-
-
-
-
-
-//Add dismiss first responder
+-(void)dismissKeyboard: (id) sender {
+    [self.view endEditing:YES];
+}
 
 @end
