@@ -53,7 +53,7 @@
         <!--Third-->
         <scene sceneID="94p-To-o13">
             <objects>
-                <viewController id="OJl-ZQ-mOl" sceneMemberID="viewController">
+                <viewController id="OJl-ZQ-mOl" customClass="ThirdViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q57-Uf-fJj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,6 +89,10 @@
                         <viewLayoutGuide key="safeArea" id="5zT-Gn-6Y1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Third" image="item5" id="CqV-Fe-2xU"/>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="e5U-cE-RsJ" id="c2a-H8-dUH"/>
+                        <outlet property="textField" destination="Fei-8d-DWt" id="mhC-j1-EHz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxr-xa-nnX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
