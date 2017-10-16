@@ -53,4 +53,10 @@
     [self.view endEditing:YES];
 }
 
+-(void)dealloc
+{
+    //Remove observer
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 @end
